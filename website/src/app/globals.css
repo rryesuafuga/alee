@@ -1,0 +1,240 @@
+@import "tailwindcss";
+
+/*
+ * Color-blind accessible palette
+ * Based on Wong (2011) Nature Methods recommendations
+ * All colors distinguishable by people with protanopia, deuteranopia, and tritanopia
+ */
+:root {
+  /* Primary brand - teal/green safe for all color vision types */
+  --color-primary: #009E73;
+  --color-primary-dark: #007856;
+  --color-primary-light: #56C4A4;
+  --color-primary-50: #E6F7F1;
+  --color-primary-100: #B3E8D4;
+
+  /* Secondary - blue, universally distinguishable */
+  --color-secondary: #0072B2;
+  --color-secondary-dark: #005587;
+  --color-secondary-light: #56B4E9;
+
+  /* Accent - orange, safe and high contrast */
+  --color-accent: #E69F00;
+  --color-accent-dark: #CC8400;
+  --color-accent-light: #F0C75E;
+
+  /* Alert/danger - vermillion, visible to color-blind users */
+  --color-danger: #D55E00;
+  --color-danger-light: #E8956A;
+
+  /* Success uses primary teal */
+  --color-success: #009E73;
+
+  /* Warning uses accent orange */
+  --color-warning: #E69F00;
+
+  /* Info uses secondary blue */
+  --color-info: #0072B2;
+
+  /* Neutral palette */
+  --color-bg: #FAFBFC;
+  --color-bg-alt: #F0F2F5;
+  --color-bg-dark: #0D1B2A;
+  --color-bg-dark-alt: #1B2D45;
+  --color-text: #1A1A2E;
+  --color-text-light: #4A5568;
+  --color-text-muted: #718096;
+  --color-text-on-dark: #E2E8F0;
+  --color-border: #E2E8F0;
+
+  /* Visualization-specific colors (all color-blind safe) */
+  --viz-1: #0072B2;
+  --viz-2: #E69F00;
+  --viz-3: #009E73;
+  --viz-4: #CC79A7;
+  --viz-5: #D55E00;
+  --viz-6: #56B4E9;
+  --viz-7: #F0E442;
+
+  /* Typography */
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing */
+  --section-padding: 6rem 1.5rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+
+  /* Borders */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+}
+
+@theme {
+  --color-primary: #009E73;
+  --color-primary-dark: #007856;
+  --color-primary-light: #56C4A4;
+  --color-secondary: #0072B2;
+  --color-secondary-light: #56B4E9;
+  --color-accent: #E69F00;
+  --color-accent-light: #F0C75E;
+  --color-danger: #D55E00;
+  --color-bg-dark: #0D1B2A;
+  --color-bg-dark-alt: #1B2D45;
+  --color-text-main: #1A1A2E;
+  --color-text-light: #4A5568;
+  --color-text-muted: #718096;
+}
+
+/* Base resets and defaults */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.7;
+}
+
+/* Inter font import */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+}
+
+/* Utility classes */
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--section-padding);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.dark-card {
+  background: var(--color-bg-dark-alt);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+}
+
+/* Animation keyframes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 158, 115, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(0, 158, 115, 0.6); }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scan-line {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* D3 visualization styles */
+.d3-tooltip {
+  position: absolute;
+  padding: 8px 12px;
+  background: var(--color-bg-dark);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  pointer-events: none;
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Pattern fills for color-blind accessibility */
+.pattern-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 5px,
+    rgba(0, 0, 0, 0.05) 5px,
+    rgba(0, 0, 0, 0.05) 10px
+  );
+}
+
+.pattern-dots {
+  background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+/* Stat counter */
+.stat-value {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
