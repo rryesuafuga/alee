@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Alee</string>
+    <string name="app_description">AI-Powered Smart Farming</string>
+    <string name="scan_plant">Scan Plant</string>
+    <string name="my_farm">My Farm</string>
+    <string name="advisories">Advisories</string>
+    <string name="sensors">Sensors</string>
+    <string name="settings">Settings</string>
+</resources>

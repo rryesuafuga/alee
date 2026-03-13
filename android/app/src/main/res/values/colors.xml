@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Wong (2011) Color-blind safe palette -->
+    <color name="primary">#FF009E73</color>
+    <color name="secondary">#FF0072B2</color>
+    <color name="accent">#FFE69F00</color>
+    <color name="danger">#FFD55E00</color>
+    <color name="pink">#FFCC79A7</color>
+    <color name="sky">#FF56B4E9</color>
+    <color name="yellow">#FFF0E442</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dark">#FF0D1B2A</color>
+    <color name="gray">#FF718096</color>
+</resources>
